@@ -11,6 +11,49 @@
 
 Uma empresa de empréstimo precisa criar um sistema de análise de solicitação de crédito. Sua tarefa será criar uma <strong>API REST SPRING BOOT E KOTLIN</strong> 🍃💜 para a empresa fornecer aos seus clientes as seguintes funcionalidades:
 
+---
+
+## Executar
+
+### Via terminal
+```bash
+   $ ./gradlew bootRun
+```
+
+### Docker
+```bash
+   $ docker pull mour4d3v/credit_api
+   $ docker run -dit -p 8080:8080 mour4d3v/credit_api
+```
+
+### Dockerfile
+```bash
+    $ docker build -t ${your username}/credit_api
+```
+
+---
+
+## Rotas
+
+### Cliente (Customer)
+
+* #### Cadastrar(POST): /api/customers
+* #### Editar(PATCH): /api/customers?customerId=${id}
+* #### Visualizar(GET): /api/customers/${id}
+* #### Deletar(DELETE): /api/customers/${id}
+
+### Credito (Credit)
+
+* #### Cadastrar(POST): /api/credits
+* #### Listar todos por cliente(GET): /api/credits?customerId=${id
+* #### Visualizar(GET): /api/credits/${creditCode}?customerId=${id}
+
+### Swagger (Documentation)
+
+* #### URL: /swagger-ui.html
+
+---
+
 * ### Cliente (Customer)
     * **Cadastrar:**
       1. **Request:** ___firstName, lastName, cpf, income, email, password, zipCode e street___
@@ -35,6 +78,8 @@ Uma empresa de empréstimo precisa criar um sistema de análise de solicitação
       1. **Request:** ___customerId e creditCode___
       2. **Response:** ___creditCode, creditValue, numberOfInstallment, status, emailCustomer e incomeCustomer___
 
+---
+
 ![API para Sistema de Avaliação de Créditos](https://i.imgur.com/7phya16.png)
   
 Diagrama UML Simplificado de uma API para Sistema de Avaliação de Crédito
@@ -43,9 +88,12 @@ Diagrama UML Simplificado de uma API para Sistema de Avaliação de Crédito
 
 Arquitetura em 3 camadas Projeto Spring Boot
 
+---
+
 ## DESAFIO
 
  Implemente as regras de negócio a seguir para a solicitação de empréstimo:
 
-1. O máximo de parcelas permitido será 48
-2. data da primeira parcela deverá ser no máximo 3 meses após o dia atual
+1. O máximo de parcelas permitido será 48 - Implementado.
+2. data da primeira parcela deverá ser no máximo 3 meses após o dia atual - Implementado
+3. Testes das classes CreditService e CreditController - Implementado
